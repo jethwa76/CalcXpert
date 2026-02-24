@@ -401,9 +401,9 @@ a:hover { opacity: 0.8; }
   gap: 0.5rem;
 }
 
-/* Make the 0 button span 2 columns like standard calculators */
+/* Make the 0 button same size as other number keys */
 .mini-key.num.zero {
-  grid-column: span 2;
+  grid-column: span 1;
 }
 
 .mini-key {
@@ -1403,6 +1403,7 @@ a:hover { opacity: 0.8; }
 /* ─── Range Slider ─── */
 .range-slider {
   -webkit-appearance: none;
+  appearance: none;
   width: 120px;
   height: 4px;
   border-radius: 99px;
