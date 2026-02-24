@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScanCal — About</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="gradient-mesh" aria-hidden="true"></div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="ScanCal Home">
+      <span>⬡</span> Scan<span>Cal</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="app.html">App</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li><a href="help.html">Help</a></li>
+      <li><a href="about.html" aria-current="page" style="color:var(--accent);">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <a href="app.html" class="btn btn-primary">Open App</a>
+    </div>
+  </nav>
+
+  <main id="main" style="max-width:800px; margin:0 auto; padding:8rem 2rem 4rem;" class="page">
+    <div style="margin-bottom:3rem;">
+      <p class="section-label">About ScanCal</p>
+      <h1 style="font-family:var(--font-display); font-weight:800; font-size:2.5rem; letter-spacing:-0.02em; margin-bottom:0.5rem;">
+        Built for People Who Care About Tools
+      </h1>
+      <p style="color:var(--text-2);">ScanCal started as a side project by a developer tired of ugly, slow, inaccessible calculators.</p>
+    </div>
+
+    <!-- Version Card -->
+    <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:2rem; margin-bottom:1.5rem; backdrop-filter:blur(12px);">
+      <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+        <div style="font-size:3rem;" aria-hidden="true">⬡</div>
+        <div>
+          <h2 style="font-family:var(--font-display); font-weight:800; font-size:1.5rem; margin-bottom:0.25rem;">ScanCal v1.0.0</h2>
+          <p style="color:var(--text-2); font-size:0.9rem;">Released February 2025 • MIT License</p>
+        </div>
+        <div style="margin-left:auto; display:flex; gap:0.5rem;">
+          <a href="#" class="btn btn-ghost btn-sm" aria-label="View on GitHub">⭐ GitHub</a>
+          <a href="#changelog" class="btn btn-ghost btn-sm" aria-label="View changelog">Changelog</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Philosophy -->
+    <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:2rem; margin-bottom:1.5rem; backdrop-filter:blur(12px);">
+      <h2 style="font-family:var(--font-display); font-weight:700; font-size:1.1rem; margin-bottom:1rem;">Our Philosophy</h2>
+      <p style="color:var(--text-2); font-size:0.9rem; line-height:1.8; margin-bottom:0.75rem;">
+        Most calculators are either too basic or too cluttered. ScanCal tries to thread the needle — a clean, fast interface that doesn't hide power features. Every pixel has a reason to exist.
+      </p>
+      <p style="color:var(--text-2); font-size:0.9rem; line-height:1.8; margin-bottom:0.75rem;">
+        We don't use <code style="font-family:var(--font-mono); background:var(--bg-3); padding:0.1rem 0.4rem; border-radius:4px;">eval()</code> — ever. Our custom expression parser handles operator precedence, parentheses, and mathematical functions with full transparency and safety.
+      </p>
+      <p style="color:var(--text-2); font-size:0.9rem; line-height:1.8;">
+        Accessibility isn't an afterthought. We build with WCAG AA standards, full keyboard navigation, and screen reader support baked in from day one.
+      </p>
+    </div>
+
+    <!-- Tech Stack -->
+    <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:2rem; margin-bottom:1.5rem; backdrop-filter:blur(12px);">
+      <h2 style="font-family:var(--font-display); font-weight:700; font-size:1.1rem; margin-bottom:1.25rem;">Technology Stack</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:0.75rem;">
+        <div style="background:var(--bg-3); border-radius:var(--radius-sm); padding:0.75rem; display:flex; align-items:center; gap:0.5rem;">
+          <span aria-hidden="true">⚛️</span>
+          <div>
+            <div style="font-size:0.85rem; font-weight:600;">React</div>
+            <div style="font-size:0.7rem; color:var(--text-3);">UI Framework</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-3); border-radius:var(--radius-sm); padding:0.75rem; display:flex; align-items:center; gap:0.5rem;">
+          <span aria-hidden="true">⚡</span>
+          <div>
+            <div style="font-size:0.85rem; font-weight:600;">Vite</div>
+            <div style="font-size:0.7rem; color:var(--text-3);">Build Tool</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-3); border-radius:var(--radius-sm); padding:0.75rem; display:flex; align-items:center; gap:0.5rem;">
+          <span aria-hidden="true">🎨</span>
+          <div>
+            <div style="font-size:0.85rem; font-weight:600;">Tailwind CSS</div>
+            <div style="font-size:0.7rem; color:var(--text-3);">Styling</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-3); border-radius:var(--radius-sm); padding:0.75rem; display:flex; align-items:center; gap:0.5rem;">
+          <span aria-hidden="true">🧮</span>
+          <div>
+            <div style="font-size:0.85rem; font-weight:600;">Custom Parser</div>
+            <div style="font-size:0.7rem; color:var(--text-3);">Math Engine</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-3); border-radius:var(--radius-sm); padding:0.75rem; display:flex; align-items:center; gap:0.5rem;">
+          <span aria-hidden="true">📱</span>
+          <div>
+            <div style="font-size:0.85rem; font-weight:600;">PWA</div>
+            <div style="font-size:0.7rem; color:var(--text-3);">Offline Support</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-3); border-radius:var(--radius-sm); padding:0.75rem; display:flex; align-items:center; gap:0.5rem;">
+          <span aria-hidden="true">🧪</span>
+          <div>
+            <div style="font-size:0.85rem; font-weight:600;">Jest + RTL</div>
+            <div style="font-size:0.7rem; color:var(--text-3);">Testing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Changelog -->
+    <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:2rem; backdrop-filter:blur(12px);" id="changelog">
+      <h2 style="font-family:var(--font-display); font-weight:700; font-size:1.1rem; margin-bottom:1.5rem;">Changelog</h2>
+
+      <div class="changelog-item">
+        <div>
+          <span class="changelog-version">v1.0.0</span>
+          <p class="changelog-date" style="margin-top:0.25rem;">February 2025</p>
+        </div>
+        <div>
+          <p class="changelog-desc">Initial release. Basic, Scientific, Programmer, and Graphing modes. PWA support, history panel, keyboard shortcuts, dark/light themes, accessibility features.</p>
+        </div>
+      </div>
+
+      <div class="changelog-item">
+        <div>
+          <span class="changelog-version">v0.9.0</span>
+          <p class="changelog-date" style="margin-top:0.25rem;">January 2025</p>
+        </div>
+        <div>
+          <p class="changelog-desc">Beta release. Core calculator engine, WCAG compliance, responsive layout, custom expression parser with operator precedence.</p>
+        </div>
+      </div>
+
+      <div class="changelog-item" style="border:none; padding-bottom:0;">
+        <div>
+          <span class="changelog-version">v0.1.0</span>
+          <p class="changelog-date" style="margin-top:0.25rem;">December 2024</p>
+        </div>
+        <div>
+          <p class="changelog-desc">Project inception. Design system, component library, and architecture planning.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast-container" id="toastContainer" aria-live="assertive" aria-atomic="true"></div>
+  <script src="app.js"></script>
+</body>
+</html>

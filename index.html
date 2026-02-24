@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ScanCal — A calculator designed for humans and power users. Basic, Scientific, Programmer, and Graphing modes. Works offline. Privacy first.">
+  <title>ScanCal — Calculator for Humans and Power Users</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0C0D10">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Particle Background -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="gradient-mesh" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="ScanCal Home">
+      <span aria-hidden="true">⬡</span> Scan<span>Cal</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="app.html">App</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li><a href="help.html">Help</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark theme">
+        🌙
+      </button>
+      <a href="app.html" class="btn btn-primary">Open App</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <div class="hero-badge" role="status">
+          ✦ Now available — offline &amp; PWA
+        </div>
+
+        <h1 id="hero-heading">
+          A Calculator Designed for<br>
+          <em>Humans and Power Users</em>
+        </h1>
+
+        <p class="hero-sub">
+          Fast, accurate, and beautiful — Basic, Scientific, Programmer, and Graphing modes.
+          Works offline. Privacy first.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="app.html" class="btn btn-primary" aria-label="Open ScanCal calculator app">
+            <span aria-hidden="true">⬡</span>
+            Open ScanCal
+          </a>
+          <a href="#demo" class="btn btn-ghost" aria-label="Try the interactive demo below">
+            Try demo ↓
+          </a>
+        </div>
+
+        <!-- Mini Calculator Demo -->
+        <div class="hero-demo" id="demo">
+          <div class="mini-calc" role="region" aria-label="Mini calculator demo" aria-live="polite">
+            <div class="mini-display">
+              <div class="mini-expr" id="miniExpr" aria-label="Expression"></div>
+              <div class="mini-result" id="miniResult" aria-label="Result" aria-live="polite">0</div>
+            </div>
+            <div class="mini-keys" role="group" aria-label="Calculator keys">
+              <button class="mini-key special" data-val="C" aria-label="Clear">C</button>
+              <button class="mini-key special" data-val="±" aria-label="Plus minus">±</button>
+              <button class="mini-key special" data-val="%" aria-label="Percent">%</button>
+              <button class="mini-key op" data-val="÷" aria-label="Divide">÷</button>
+
+              <button class="mini-key num" data-val="7" aria-label="7">7</button>
+              <button class="mini-key num" data-val="8" aria-label="8">8</button>
+              <button class="mini-key num" data-val="9" aria-label="9">9</button>
+              <button class="mini-key op" data-val="×" aria-label="Multiply">×</button>
+
+              <button class="mini-key num" data-val="4" aria-label="4">4</button>
+              <button class="mini-key num" data-val="5" aria-label="5">5</button>
+              <button class="mini-key num" data-val="6" aria-label="6">6</button>
+              <button class="mini-key op" data-val="−" aria-label="Subtract">−</button>
+
+              <button class="mini-key num" data-val="1" aria-label="1">1</button>
+              <button class="mini-key num" data-val="2" aria-label="2">2</button>
+              <button class="mini-key num" data-val="3" aria-label="3">3</button>
+              <button class="mini-key op" data-val="+" aria-label="Add">+</button>
+
+              <button class="mini-key num" data-val="0" aria-label="0" style="grid-column: span 2;">0</button>
+              <button class="mini-key num" data-val="." aria-label="Decimal">.</button>
+              <button class="mini-key eq" data-val="=" aria-label="Equals">=</button>
+            </div>
+          </div>
+          <p style="margin-top:1rem; font-size:0.8rem; color:var(--text-3);">
+            ↑ Fully interactive — try it out!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features" aria-labelledby="features-heading">
+      <div style="max-width:1100px; margin:0 auto;">
+        <p class="section-label">Why ScanCal</p>
+        <h2 class="section-title" id="features-heading">Everything you need,<br>nothing you don't</h2>
+        <p class="section-sub">Built with obsessive attention to detail for the people who actually use calculators.</p>
+
+        <div class="features-grid" role="list">
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">🧮</div>
+            <h3>Four Modes</h3>
+            <p>Switch seamlessly between Basic, Scientific, Programmer, and Graphing modes. Each tailored for its use case.</p>
+          </article>
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">📡</div>
+            <h3>Works Offline</h3>
+            <p>Installable as a PWA. Your calculations never leave your device. No network required — ever.</p>
+          </article>
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">⌨️</div>
+            <h3>Keyboard First</h3>
+            <p>Full keyboard navigation with shortcuts for every function. Built for developers and power users.</p>
+          </article>
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">🔐</div>
+            <h3>Privacy First</h3>
+            <p>No telemetry by default. History stays on your device. Optional analytics that you fully control.</p>
+          </article>
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">♿</div>
+            <h3>Accessible</h3>
+            <p>WCAG AA compliant. Full screen reader support, reduced motion, and high-contrast modes built in.</p>
+          </article>
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon" aria-hidden="true">📊</div>
+            <h3>Smart History</h3>
+            <p>Persistent, searchable calculation history. Pin important results, export to CSV, share deep links.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modes Section -->
+    <section class="section" aria-labelledby="modes-heading">
+      <div class="modes-section">
+        <p class="section-label">Calculator Modes</p>
+        <h2 class="section-title" id="modes-heading">One app, four superpowers</h2>
+
+        <div class="modes-tabs" role="tablist" aria-label="Calculator modes">
+          <button class="mode-tab active" role="tab" aria-selected="true" aria-controls="mode-basic" data-mode="basic">
+            Basic
+          </button>
+          <button class="mode-tab" role="tab" aria-selected="false" aria-controls="mode-sci" data-mode="sci">
+            Scientific
+          </button>
+          <button class="mode-tab" role="tab" aria-selected="false" aria-controls="mode-prog" data-mode="prog">
+            Programmer
+          </button>
+          <button class="mode-tab" role="tab" aria-selected="false" aria-controls="mode-graph" data-mode="graph">
+            Graphing
+          </button>
+        </div>
+
+        <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-xl); padding:2.5rem; backdrop-filter:blur(12px);">
+          <div id="mode-basic" role="tabpanel" aria-labelledby="tab-basic">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center;">
+              <div style="text-align:left;">
+                <h3 style="font-family:var(--font-display); font-size:1.5rem; font-weight:700; margin-bottom:0.75rem;">Basic Mode</h3>
+                <p style="color:var(--text-2); margin-bottom:1rem; font-size:0.95rem;">Clean, distraction-free arithmetic. Percentage, ±, memory functions. Perfect for everyday calculations at lightning speed.</p>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:0.4rem;">
+                  <li style="font-size:0.85rem; color:var(--text-2);">✓ Arithmetic, %, ±</li>
+                  <li style="font-size:0.85rem; color:var(--text-2);">✓ Memory M+, M−, MR, MC</li>
+                  <li style="font-size:0.85rem; color:var(--text-2);">✓ Undo / Redo</li>
+                  <li style="font-size:0.85rem; color:var(--text-2);">✓ Copy &amp; share results</li>
+                </ul>
+              </div>
+              <div style="font-size:4rem; text-align:center; opacity:0.3;">🔢</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" aria-labelledby="testimonials-heading">
+      <div style="max-width:1100px; margin:0 auto;">
+        <p class="section-label text-center">Loved by users</p>
+        <h2 class="section-title text-center" id="testimonials-heading">What people are saying</h2>
+
+        <div class="testimonials" role="list">
+          <article class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-text">"Finally a calculator that doesn't feel like it was designed in 2003. The keyboard shortcuts alone are worth it."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:#6EE7B7;" aria-hidden="true">AK</div>
+              <div class="testimonial-author-info">
+                <strong>Alex K.</strong>
+                <span>Software Engineer</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-text">"The programmer mode with base conversions is incredible. I use it every day for bit manipulation work."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:#FBBF24;" aria-hidden="true">MR</div>
+              <div class="testimonial-author-info">
+                <strong>Maya R.</strong>
+                <span>Embedded Systems Dev</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-text">"The accessibility is genuinely impressive. Works perfectly with my screen reader and respects my motion preferences."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:#F87171;" aria-hidden="true">SL</div>
+              <div class="testimonial-author-info">
+                <strong>Sam L.</strong>
+                <span>UX Researcher</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Tech Badges -->
+        <div class="tech-badges" role="list" aria-label="Technologies used">
+          <div class="tech-badge" role="listitem">⚛️ React</div>
+          <div class="tech-badge" role="listitem">⚡ Vite</div>
+          <div class="tech-badge" role="listitem">🎨 Tailwind</div>
+          <div class="tech-badge" role="listitem">🧮 Math.js</div>
+          <div class="tech-badge" role="listitem">📱 PWA Ready</div>
+          <div class="tech-badge" role="listitem">♿ WCAG AA</div>
+          <div class="tech-badge" role="listitem">🔐 No Tracking</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="section" aria-labelledby="cta-heading">
+      <div class="cta-banner">
+        <h2 id="cta-heading">A calculator for creators, coders and the curious.</h2>
+        <p>Try it free — no account, no data collection, no BS.</p>
+        <div class="hero-ctas">
+          <a href="app.html" class="btn btn-primary">Open ScanCal — it's free</a>
+          <a href="help.html" class="btn btn-ghost">View keyboard shortcuts</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="font-size:1.2rem;">
+          <span>⬡</span> Scan<span>Cal</span>
+        </a>
+        <p>A calculator designed for humans and power users. Open source. Privacy first.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="App links">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="app.html">Calculator</a></li>
+          <li><a href="app.html#basic">Basic Mode</a></li>
+          <li><a href="app.html#scientific">Scientific Mode</a></li>
+          <li><a href="app.html#programmer">Programmer Mode</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Support links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="help.html">Help & Shortcuts</a></li>
+          <li><a href="settings.html">Settings</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#changelog">Changelog</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Legal links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Open Source</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 ScanCal. Built with ♥ for power users everywhere.</p>
+      <p style="font-size:0.8rem; color:var(--text-3);">v1.0.0 — No cookies. No trackers.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

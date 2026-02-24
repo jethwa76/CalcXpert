@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScanCal — Help & Shortcuts</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="gradient-mesh" aria-hidden="true"></div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="ScanCal Home">
+      <span>⬡</span> Scan<span>Cal</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="app.html">App</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li><a href="help.html" aria-current="page" style="color:var(--accent);">Help</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <a href="app.html" class="btn btn-primary">Open App</a>
+    </div>
+  </nav>
+
+  <main id="main" class="help-layout page">
+    <div style="margin-bottom:2rem;">
+      <p class="section-label">Documentation</p>
+      <h1 style="font-family:var(--font-display); font-weight:800; font-size:2.5rem; letter-spacing:-0.02em; margin-bottom:0.5rem;">
+        Help & Shortcuts
+      </h1>
+      <p style="color:var(--text-2);">Everything you need to master ScanCal.</p>
+    </div>
+
+    <div class="tab-bar" role="tablist" aria-label="Help sections">
+      <button class="tab-item active" role="tab" aria-selected="true" data-tab="shortcuts">Keyboard Shortcuts</button>
+      <button class="tab-item" role="tab" aria-selected="false" data-tab="faq">FAQ</button>
+      <button class="tab-item" role="tab" aria-selected="false" data-tab="modes">Modes Guide</button>
+      <button class="tab-item" role="tab" aria-selected="false" data-tab="formulas">Formula Reference</button>
+    </div>
+
+    <!-- Shortcuts Tab -->
+    <div class="tab-panel active" id="tab-shortcuts" role="tabpanel">
+      <h2 style="font-family:var(--font-display); font-weight:700; margin-bottom:0.5rem;">Keyboard Shortcuts</h2>
+      <p style="color:var(--text-2); font-size:0.9rem; margin-bottom:1.5rem;">All shortcuts work when the app is focused. Press <kbd class="kbd">?</kbd> anytime to see this overlay.</p>
+
+      <h3 style="font-size:0.85rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-2); margin-bottom:0.75rem;">General</h3>
+      <div class="shortcut-grid">
+        <div class="shortcut-item"><span class="shortcut-label">Calculate result</span><kbd class="kbd">Enter</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Clear all</span><kbd class="kbd">Escape</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Backspace</span><kbd class="kbd">Backspace</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Undo</span><kbd class="kbd">Ctrl+Z</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Redo</span><kbd class="kbd">Ctrl+Y</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Copy result</span><kbd class="kbd">Ctrl+C</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Show shortcuts</span><kbd class="kbd">?</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Toggle history</span><kbd class="kbd">Ctrl+H</kbd></div>
+      </div>
+
+      <h3 style="font-size:0.85rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-2); margin:1.5rem 0 0.75rem;">Mode Switching</h3>
+      <div class="shortcut-grid">
+        <div class="shortcut-item"><span class="shortcut-label">Basic mode</span><kbd class="kbd">Alt+1</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Scientific mode</span><kbd class="kbd">Alt+2</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Programmer mode</span><kbd class="kbd">Alt+3</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Graphing mode</span><kbd class="kbd">Alt+4</kbd></div>
+      </div>
+
+      <h3 style="font-size:0.85rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-2); margin:1.5rem 0 0.75rem;">Memory</h3>
+      <div class="shortcut-grid">
+        <div class="shortcut-item"><span class="shortcut-label">Memory store</span><kbd class="kbd">Ctrl+M</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Memory recall</span><kbd class="kbd">Ctrl+R</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Memory clear</span><kbd class="kbd">Ctrl+L</kbd></div>
+      </div>
+
+      <h3 style="font-size:0.85rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-2); margin:1.5rem 0 0.75rem;">Scientific Operations</h3>
+      <div class="shortcut-grid">
+        <div class="shortcut-item"><span class="shortcut-label">Square root</span><kbd class="kbd">Ctrl+Q</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Pi constant</span><kbd class="kbd">Ctrl+P</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Open paren</span><kbd class="kbd">(</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Close paren</span><kbd class="kbd">)</kbd></div>
+      </div>
+    </div>
+
+    <!-- FAQ Tab -->
+    <div class="tab-panel" id="tab-faq" role="tabpanel">
+      <h2 style="font-family:var(--font-display); font-weight:700; margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+
+      <div class="faq-item" aria-expanded="false">
+        <div class="faq-question" role="button" tabindex="0" aria-controls="faq-1">
+          <span>Does ScanCal use eval() for calculations?</span>
+          <span class="faq-arrow" aria-hidden="true">▶</span>
+        </div>
+        <div class="faq-answer" id="faq-1" role="region">
+          <div class="faq-answer-inner">
+            No — ScanCal uses a safe custom expression parser that handles operator precedence, parentheses, and mathematical functions without relying on JavaScript's eval(). This prevents code injection and ensures safe, predictable results.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" role="button" tabindex="0" aria-controls="faq-2">
+          <span>Is my calculation history stored in the cloud?</span>
+          <span class="faq-arrow" aria-hidden="true">▶</span>
+        </div>
+        <div class="faq-answer" id="faq-2" role="region">
+          <div class="faq-answer-inner">
+            Never. All history is stored locally in your browser's localStorage. Nothing is sent to any server. You can disable history saving entirely in Settings → History.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" role="button" tabindex="0" aria-controls="faq-3">
+          <span>How do I install ScanCal as an app (PWA)?</span>
+          <span class="faq-arrow" aria-hidden="true">▶</span>
+        </div>
+        <div class="faq-answer" id="faq-3" role="region">
+          <div class="faq-answer-inner">
+            On Chrome/Edge: click the install icon in the address bar. On Safari (iOS): tap Share → "Add to Home Screen". Once installed, ScanCal works fully offline.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" role="button" tabindex="0" aria-controls="faq-4">
+          <span>What does "Divide by zero" mean and how do I fix it?</span>
+          <span class="faq-arrow" aria-hidden="true">▶</span>
+        </div>
+        <div class="faq-answer" id="faq-4" role="region">
+          <div class="faq-answer-inner">
+            Division by zero is mathematically undefined. If you see this error, your expression likely divides a number by 0. Try using a very small number like 0.0001 instead, or reconsider your calculation.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" role="button" tabindex="0" aria-controls="faq-5">
+          <span>How do I use trig functions? Are they in degrees or radians?</span>
+          <span class="faq-arrow" aria-hidden="true">▶</span>
+        </div>
+        <div class="faq-answer" id="faq-5" role="region">
+          <div class="faq-answer-inner">
+            By default, trigonometric functions use degrees. You can switch to radians in Settings → Calculator → Angle Unit. In Scientific mode, use sin(), cos(), tan() with a number inside the parentheses.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modes Guide Tab -->
+    <div class="tab-panel" id="tab-modes" role="tabpanel">
+      <h2 style="font-family:var(--font-display); font-weight:700; margin-bottom:1.5rem;">Calculator Modes Guide</h2>
+
+      <div style="display:grid; gap:1.25rem;">
+        <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:1.75rem; backdrop-filter:blur(12px);">
+          <h3 style="font-family:var(--font-display); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">🔢 Basic Mode</h3>
+          <p style="color:var(--text-2); font-size:0.9rem; margin-bottom:1rem;">Perfect for everyday arithmetic. Fast and distraction-free.</p>
+          <p style="font-size:0.85rem; color:var(--text-2);">Supports: <code style="font-family:var(--font-mono); background:var(--bg-3); padding:0.1rem 0.35rem; border-radius:4px;">+  −  ×  ÷  %  ±</code> plus memory functions.</p>
+        </div>
+
+        <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:1.75rem; backdrop-filter:blur(12px);">
+          <h3 style="font-family:var(--font-display); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">🔬 Scientific Mode</h3>
+          <p style="color:var(--text-2); font-size:0.9rem; margin-bottom:1rem;">For engineering, physics, and advanced math. Trigonometry, logarithms, and more.</p>
+          <p style="font-size:0.85rem; color:var(--text-2);">Supports: <code style="font-family:var(--font-mono); background:var(--bg-3); padding:0.1rem 0.35rem; border-radius:4px;">sin cos tan asin acos atan log ln √ ^ π e</code></p>
+        </div>
+
+        <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:1.75rem; backdrop-filter:blur(12px);">
+          <h3 style="font-family:var(--font-display); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">💻 Programmer Mode</h3>
+          <p style="color:var(--text-2); font-size:0.9rem; margin-bottom:1rem;">Built for developers. Convert between number bases and perform bitwise operations.</p>
+          <p style="font-size:0.85rem; color:var(--text-2);">Supports: <code style="font-family:var(--font-mono); background:var(--bg-3); padding:0.1rem 0.35rem; border-radius:4px;">DEC HEX OCT BIN  AND OR XOR NOT</code></p>
+        </div>
+
+        <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:1.75rem; backdrop-filter:blur(12px);">
+          <h3 style="font-family:var(--font-display); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">📈 Graphing Mode</h3>
+          <p style="color:var(--text-2); font-size:0.9rem; margin-bottom:1rem;">Visualize mathematical functions in real time. Enter y = f(x) and plot instantly.</p>
+          <p style="font-size:0.85rem; color:var(--text-2);">Examples: <code style="font-family:var(--font-mono); background:var(--bg-3); padding:0.1rem 0.35rem; border-radius:4px;">sin(x)   x^2   x*cos(x)   1/x</code></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formula Reference Tab -->
+    <div class="tab-panel" id="tab-formulas" role="tabpanel">
+      <h2 style="font-family:var(--font-display); font-weight:700; margin-bottom:1.5rem;">Formula Quick Reference</h2>
+
+      <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:1.75rem; backdrop-filter:blur(12px);">
+        <table style="width:100%; border-collapse:collapse; font-size:0.875rem;" aria-label="Formula reference table">
+          <thead>
+            <tr style="border-bottom:1px solid var(--glass-border);">
+              <th style="text-align:left; padding:0.5rem; color:var(--text-2); font-weight:600; font-family:var(--font-display);">Function</th>
+              <th style="text-align:left; padding:0.5rem; color:var(--text-2); font-weight:600; font-family:var(--font-display);">Syntax</th>
+              <th style="text-align:left; padding:0.5rem; color:var(--text-2); font-weight:600; font-family:var(--font-display);">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:0.6rem 0.5rem;">Sine</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--accent);">sin(x)</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--text-3);">sin(30) = 0.5</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:0.6rem 0.5rem;">Cosine</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--accent);">cos(x)</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--text-3);">cos(60) = 0.5</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:0.6rem 0.5rem;">Logarithm (base 10)</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--accent);">log(x)</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--text-3);">log(100) = 2</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:0.6rem 0.5rem;">Natural log</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--accent);">ln(x)</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--text-3);">ln(e) = 1</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:0.6rem 0.5rem;">Square root</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--accent);">√(x)</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--text-3);">√(144) = 12</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:0.6rem 0.5rem;">Power</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--accent);">x^y</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--text-3);">2^10 = 1024</td>
+            </tr>
+            <tr>
+              <td style="padding:0.6rem 0.5rem;">Pi</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--accent);">π</td>
+              <td style="padding:0.6rem 0.5rem; font-family:var(--font-mono); color:var(--text-3);">π ≈ 3.14159</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast-container" id="toastContainer" aria-live="assertive" aria-atomic="true"></div>
+  <script src="app.js"></script>
+</body>
+</html>

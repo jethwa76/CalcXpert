@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScanCal — Settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to settings</a>
+  <div class="gradient-mesh" aria-hidden="true"></div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="ScanCal Home">
+      <span>⬡</span> Scan<span>Cal</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="app.html">App</a></li>
+      <li><a href="settings.html" aria-current="page" style="color:var(--accent);">Settings</a></li>
+      <li><a href="help.html">Help</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <a href="app.html" class="btn btn-primary">Open App</a>
+    </div>
+  </nav>
+
+  <main id="main" class="settings-layout page">
+    <div class="settings-hero">
+      <p class="section-label">Preferences</p>
+      <h1 style="font-family:var(--font-display); font-weight:800; font-size:2.5rem; letter-spacing:-0.02em; margin-bottom:0.5rem;">
+        Settings
+      </h1>
+      <p style="color:var(--text-2); font-size:0.95rem;">Customize ScanCal to match your workflow and preferences.</p>
+    </div>
+
+    <!-- Theme Section -->
+    <section class="settings-section" aria-labelledby="theme-settings">
+      <h2 class="settings-section-title" id="theme-settings">
+        <span aria-hidden="true">🎨</span> Appearance
+      </h2>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Color Theme</h3>
+          <p>Choose how ScanCal looks to you</p>
+        </div>
+        <select class="settings-select" id="themeSelect" aria-label="Select color theme">
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+          <option value="system">System</option>
+        </select>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Accent Color</h3>
+          <p>Primary color used for buttons and highlights</p>
+        </div>
+        <div></div>
+      </div>
+      <div class="color-picker-row" role="group" aria-label="Select accent color">
+        <button class="color-swatch active" style="background:#6EE7B7;" data-color="#6EE7B7" aria-label="Emerald green" aria-pressed="true"></button>
+        <button class="color-swatch" style="background:#60A5FA;" data-color="#60A5FA" aria-label="Blue" aria-pressed="false"></button>
+        <button class="color-swatch" style="background:#F472B6;" data-color="#F472B6" aria-label="Pink" aria-pressed="false"></button>
+        <button class="color-swatch" style="background:#FBBF24;" data-color="#FBBF24" aria-label="Amber" aria-pressed="false"></button>
+        <button class="color-swatch" style="background:#A78BFA;" data-color="#A78BFA" aria-label="Purple" aria-pressed="false"></button>
+        <button class="color-swatch" style="background:#FB923C;" data-color="#FB923C" aria-label="Orange" aria-pressed="false"></button>
+        <input type="color" id="customColor" value="#6EE7B7" style="width:32px; height:32px; border-radius:50%; border:none; cursor:pointer; padding:0;" aria-label="Custom accent color">
+      </div>
+
+      <div class="settings-row" style="margin-top:0.75rem;">
+        <div class="settings-row-info">
+          <h3>Font Size</h3>
+          <p>Adjust the calculator display text size</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <span style="font-size:0.75rem; color:var(--text-3);" aria-hidden="true">A</span>
+          <input type="range" class="range-slider" id="fontSizeSlider" min="14" max="24" value="16" aria-label="Font size" aria-valuemin="14" aria-valuemax="24" aria-valuenow="16">
+          <span style="font-size:1rem; color:var(--text-3);" aria-hidden="true">A</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="settings-section" aria-labelledby="calc-settings">
+      <h2 class="settings-section-title" id="calc-settings">
+        <span aria-hidden="true">🧮</span> Calculator
+      </h2>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Default Mode</h3>
+          <p>Mode opened when you launch the app</p>
+        </div>
+        <select class="settings-select" id="defaultMode" aria-label="Default calculator mode">
+          <option value="basic">Basic</option>
+          <option value="scientific">Scientific</option>
+          <option value="programmer">Programmer</option>
+          <option value="graphing">Graphing</option>
+        </select>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Decimal Precision</h3>
+          <p>Number of decimal places shown in results</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <input type="range" class="range-slider" id="precisionSlider" min="0" max="12" value="8" aria-label="Decimal precision" aria-valuemin="0" aria-valuemax="12" aria-valuenow="8">
+          <span id="precisionVal" style="font-family:var(--font-mono); font-size:0.85rem; color:var(--text-2); min-width:1.5rem;" aria-live="polite">8</span>
+        </div>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Thousands Separator</h3>
+          <p>Show commas in large numbers (1,234,567)</p>
+        </div>
+        <label class="toggle" aria-label="Toggle thousands separator">
+          <input type="checkbox" id="thousandsSep" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Angle Unit</h3>
+          <p>Unit used for trigonometric functions</p>
+        </div>
+        <select class="settings-select" id="angleUnit" aria-label="Angle unit for trigonometry">
+          <option value="deg">Degrees</option>
+          <option value="rad">Radians</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="settings-section" aria-labelledby="history-settings">
+      <h2 class="settings-section-title" id="history-settings">
+        <span aria-hidden="true">📋</span> History
+      </h2>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Save History</h3>
+          <p>History is saved for your convenience — stays on your device</p>
+        </div>
+        <label class="toggle" aria-label="Toggle history saving">
+          <input type="checkbox" id="saveHistory" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>History Limit</h3>
+          <p>Max number of entries to keep</p>
+        </div>
+        <select class="settings-select" id="historyLimit" aria-label="History limit">
+          <option value="50">50 entries</option>
+          <option value="100" selected>100 entries</option>
+          <option value="500">500 entries</option>
+          <option value="unlimited">Unlimited</option>
+        </select>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Clear All History</h3>
+          <p>Permanently delete all saved calculations</p>
+        </div>
+        <button class="btn btn-sm" style="background:rgba(248,113,113,0.12); color:var(--danger); border:1px solid rgba(248,113,113,0.2);" id="clearHistorySettings" aria-label="Clear all calculation history">
+          Clear History
+        </button>
+      </div>
+    </section>
+
+    <!-- Keyboard Section -->
+    <section class="settings-section" aria-labelledby="keyboard-settings">
+      <h2 class="settings-section-title" id="keyboard-settings">
+        <span aria-hidden="true">⌨️</span> Keyboard
+      </h2>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Global Shortcuts</h3>
+          <p>Enable keyboard shortcuts across the app</p>
+        </div>
+        <label class="toggle" aria-label="Toggle global keyboard shortcuts">
+          <input type="checkbox" id="keyboardShortcuts" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Sound Effects</h3>
+          <p>Play subtle audio feedback on key press</p>
+        </div>
+        <label class="toggle" aria-label="Toggle sound effects">
+          <input type="checkbox" id="soundEffects">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Accessibility Section -->
+    <section class="settings-section" aria-labelledby="a11y-settings">
+      <h2 class="settings-section-title" id="a11y-settings">
+        <span aria-hidden="true">♿</span> Accessibility
+      </h2>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Reduce Motion</h3>
+          <p>Minimize animations and transitions</p>
+        </div>
+        <label class="toggle" aria-label="Toggle reduced motion">
+          <input type="checkbox" id="reduceMotion">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>High Contrast</h3>
+          <p>Increase contrast for better legibility</p>
+        </div>
+        <label class="toggle" aria-label="Toggle high contrast mode">
+          <input type="checkbox" id="highContrast">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Large Touch Targets</h3>
+          <p>Increase button size for easier tapping</p>
+        </div>
+        <label class="toggle" aria-label="Toggle large touch targets">
+          <input type="checkbox" id="largeTouchTargets">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="settings-section" aria-labelledby="privacy-settings">
+      <h2 class="settings-section-title" id="privacy-settings">
+        <span aria-hidden="true">🔐</span> Privacy
+      </h2>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Analytics</h3>
+          <p>Share anonymous usage data to help improve ScanCal (opt-in only)</p>
+        </div>
+        <label class="toggle" aria-label="Toggle analytics opt-in">
+          <input type="checkbox" id="analytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Export My Data</h3>
+          <p>Download all your data as a JSON file</p>
+        </div>
+        <button class="btn btn-sm btn-ghost" id="exportData" aria-label="Export all data">Export JSON</button>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Delete All Data</h3>
+          <p>Permanently remove all ScanCal data from this device</p>
+        </div>
+        <button class="btn btn-sm" style="background:rgba(248,113,113,0.12); color:var(--danger); border:1px solid rgba(248,113,113,0.2);" id="deleteAllData" aria-label="Delete all data">
+          Delete Data
+        </button>
+      </div>
+    </section>
+
+    <!-- Developer Section -->
+    <section class="settings-section" aria-labelledby="dev-settings">
+      <h2 class="settings-section-title" id="dev-settings">
+        <span aria-hidden="true">🛠️</span> Developer
+      </h2>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Verbose Logs</h3>
+          <p>Enable detailed logging to browser console</p>
+        </div>
+        <label class="toggle" aria-label="Toggle verbose logging">
+          <input type="checkbox" id="verboseLogs">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-row">
+        <div class="settings-row-info">
+          <h3>Demo Mode</h3>
+          <p>Pre-fill with sample calculations for testing</p>
+        </div>
+        <label class="toggle" aria-label="Toggle demo mode">
+          <input type="checkbox" id="demoMode">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--glass-border); display:flex; gap:1rem; flex-wrap:wrap;">
+      <button class="btn btn-primary" id="saveSettings" aria-label="Save all settings">
+        Save Changes
+      </button>
+      <button class="btn btn-ghost" id="resetSettings" aria-label="Reset settings to defaults">
+        Reset to Defaults
+      </button>
+      <a href="app.html" class="btn btn-ghost" style="margin-left:auto;">
+        Back to App
+      </a>
+    </div>
+  </main>
+
+  <div class="toast-container" id="toastContainer" aria-live="assertive" aria-atomic="true"></div>
+  <script src="app.js"></script>
+</body>
+</html>

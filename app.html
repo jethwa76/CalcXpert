@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ScanCal — Full calculator app with Basic, Scientific, Programmer, and Graphing modes.">
+  <title>ScanCal App — Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { overflow: hidden; }
+  </style>
+</head>
+<body>
+  <a href="#calc" class="skip-link">Skip to calculator</a>
+  <div class="gradient-mesh" aria-hidden="true"></div>
+
+  <!-- Sidebar Overlay (mobile) -->
+  <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+
+    <!-- History Sidebar -->
+    <aside class="app-sidebar" id="sidebar" role="complementary" aria-label="Calculation history">
+      <div class="sidebar-header">
+        <span class="sidebar-title">History</span>
+        <div style="display:flex; gap:0.4rem;">
+          <button class="btn btn-sm btn-ghost" id="exportBtn" title="Export history as CSV" aria-label="Export history as CSV">
+            ↓ CSV
+          </button>
+          <button class="btn btn-sm btn-ghost" id="clearHistoryBtn" title="Clear all history" aria-label="Clear all history">
+            Clear
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-search">
+        <input
+          type="search"
+          class="search-input"
+          id="historySearch"
+          placeholder="Search history…"
+          aria-label="Search calculation history"
+        >
+      </div>
+
+      <div class="history-list" id="historyList" role="list" aria-label="History items">
+        <div class="empty-state" id="historyEmpty">
+          <div class="empty-state-icon" aria-hidden="true">🧮</div>
+          <p>Your calculations will appear here.</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Calculator -->
+    <main class="calc-main" id="calc">
+
+      <!-- Top bar -->
+      <div class="calc-topbar">
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <button class="hamburger" id="hamburger" aria-label="Toggle history panel" aria-expanded="false" aria-controls="sidebar">
+            <span></span><span></span><span></span>
+          </button>
+          <a href="index.html" class="nav-logo" style="font-size:1.1rem;" aria-label="ScanCal home">
+            <span>⬡</span> Scan<span>Cal</span>
+          </a>
+        </div>
+
+        <!-- Mode Switcher -->
+        <div class="mode-switcher" role="tablist" aria-label="Calculator mode">
+          <button class="mode-btn active" role="tab" aria-selected="true" data-mode="basic" aria-controls="keypad-basic">Basic</button>
+          <button class="mode-btn" role="tab" aria-selected="false" data-mode="scientific" aria-controls="keypad-sci">Scientific</button>
+          <button class="mode-btn" role="tab" aria-selected="false" data-mode="programmer" aria-controls="keypad-prog">Programmer</button>
+          <button class="mode-btn" role="tab" aria-selected="false" data-mode="graphing" aria-controls="keypad-graph">Graph</button>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+          <a href="settings.html" class="btn btn-sm btn-ghost" aria-label="Go to Settings">⚙️</a>
+        </div>
+      </div>
+
+      <!-- Display Area -->
+      <section class="calc-display" aria-label="Calculator display" aria-live="polite">
+        <div class="display-memory" id="memDisplay" aria-label="Memory value"></div>
+        <div class="display-expression" id="displayExpr" aria-label="Expression"></div>
+        <div class="display-result" id="displayResult" role="status" aria-label="Result">0</div>
+      </section>
+
+      <!-- Memory Row -->
+      <div class="memory-row" aria-label="Memory functions">
+        <button class="mem-key" data-mem="MC" aria-label="Memory Clear">MC</button>
+        <button class="mem-key" data-mem="MR" aria-label="Memory Recall">MR</button>
+        <button class="mem-key" data-mem="M+" aria-label="Memory Add">M+</button>
+        <button class="mem-key" data-mem="M-" aria-label="Memory Subtract">M−</button>
+        <button class="mem-key" data-mem="MS" aria-label="Memory Store">MS</button>
+      </div>
+
+      <!-- Keypad Area -->
+      <div class="calc-keypad" id="keypadArea">
+
+        <!-- === BASIC MODE === -->
+        <div id="keypad-basic" role="tabpanel" aria-labelledby="basic-tab">
+          <div class="main-keys" role="group" aria-label="Calculator keys">
+            <!-- Row 1 -->
+            <button class="key key-danger" data-val="AC" aria-label="All Clear">AC</button>
+            <button class="key key-special" data-val="±" aria-label="Toggle sign">±</button>
+            <button class="key key-special" data-val="%" aria-label="Percent">%</button>
+            <button class="key key-op" data-val="÷" aria-label="Divide">÷</button>
+            <!-- Row 2 -->
+            <button class="key key-num" data-val="7" aria-label="7">7</button>
+            <button class="key key-num" data-val="8" aria-label="8">8</button>
+            <button class="key key-num" data-val="9" aria-label="9">9</button>
+            <button class="key key-op" data-val="×" aria-label="Multiply">×</button>
+            <!-- Row 3 -->
+            <button class="key key-num" data-val="4" aria-label="4">4</button>
+            <button class="key key-num" data-val="5" aria-label="5">5</button>
+            <button class="key key-num" data-val="6" aria-label="6">6</button>
+            <button class="key key-op" data-val="−" aria-label="Subtract">−</button>
+            <!-- Row 4 -->
+            <button class="key key-num" data-val="1" aria-label="1">1</button>
+            <button class="key key-num" data-val="2" aria-label="2">2</button>
+            <button class="key key-num" data-val="3" aria-label="3">3</button>
+            <button class="key key-op" data-val="+" aria-label="Add">+</button>
+            <!-- Row 5 -->
+            <button class="key key-num" data-val="0" aria-label="0" style="grid-column: span 2;">0</button>
+            <button class="key key-num" data-val="." aria-label="Decimal point">.</button>
+            <button class="key key-eq" data-val="=" aria-label="Equals">=</button>
+          </div>
+        </div>
+
+        <!-- === SCIENTIFIC MODE === -->
+        <div id="keypad-sci" role="tabpanel" aria-labelledby="sci-tab" style="display:none;">
+          <div class="scientific-row" role="group" aria-label="Scientific functions">
+            <button class="key key-sci" data-val="sin(" aria-label="Sine">sin</button>
+            <button class="key key-sci" data-val="cos(" aria-label="Cosine">cos</button>
+            <button class="key key-sci" data-val="tan(" aria-label="Tangent">tan</button>
+            <button class="key key-sci" data-val="log(" aria-label="Logarithm">log</button>
+            <button class="key key-sci" data-val="ln(" aria-label="Natural log">ln</button>
+            <button class="key key-sci" data-val="√(" aria-label="Square root">√</button>
+            <button class="key key-sci" data-val="^2" aria-label="Square">x²</button>
+            <button class="key key-sci" data-val="^" aria-label="Power">xʸ</button>
+            <button class="key key-sci" data-val="π" aria-label="Pi">π</button>
+            <button class="key key-sci" data-val="e" aria-label="Euler number">e</button>
+            <button class="key key-sci" data-val="(" aria-label="Open parenthesis">(</button>
+            <button class="key key-sci" data-val=")" aria-label="Close parenthesis">)</button>
+            <button class="key key-sci" data-val="asin(" aria-label="Arc sine">sin⁻¹</button>
+            <button class="key key-sci" data-val="acos(" aria-label="Arc cosine">cos⁻¹</button>
+            <button class="key key-sci" data-val="atan(" aria-label="Arc tangent">tan⁻¹</button>
+          </div>
+          <div class="main-keys" role="group" aria-label="Number keys">
+            <button class="key key-danger" data-val="AC" aria-label="All Clear">AC</button>
+            <button class="key key-special" data-val="±" aria-label="Toggle sign">±</button>
+            <button class="key key-special" data-val="%" aria-label="Percent">%</button>
+            <button class="key key-op" data-val="÷" aria-label="Divide">÷</button>
+
+            <button class="key key-num" data-val="7" aria-label="7">7</button>
+            <button class="key key-num" data-val="8" aria-label="8">8</button>
+            <button class="key key-num" data-val="9" aria-label="9">9</button>
+            <button class="key key-op" data-val="×" aria-label="Multiply">×</button>
+
+            <button class="key key-num" data-val="4" aria-label="4">4</button>
+            <button class="key key-num" data-val="5" aria-label="5">5</button>
+            <button class="key key-num" data-val="6" aria-label="6">6</button>
+            <button class="key key-op" data-val="−" aria-label="Subtract">−</button>
+
+            <button class="key key-num" data-val="1" aria-label="1">1</button>
+            <button class="key key-num" data-val="2" aria-label="2">2</button>
+            <button class="key key-num" data-val="3" aria-label="3">3</button>
+            <button class="key key-op" data-val="+" aria-label="Add">+</button>
+
+            <button class="key key-num" data-val="0" aria-label="0" style="grid-column: span 2;">0</button>
+            <button class="key key-num" data-val="." aria-label="Decimal">.</button>
+            <button class="key key-eq" data-val="=" aria-label="Equals">=</button>
+          </div>
+        </div>
+
+        <!-- === PROGRAMMER MODE === -->
+        <div id="keypad-prog" role="tabpanel" aria-labelledby="prog-tab" style="display:none;">
+          <div class="base-selector" role="group" aria-label="Number base selector">
+            <button class="base-btn active" data-base="10" aria-pressed="true" aria-label="Decimal base">DEC</button>
+            <button class="base-btn" data-base="16" aria-pressed="false" aria-label="Hexadecimal base">HEX</button>
+            <button class="base-btn" data-base="8" aria-pressed="false" aria-label="Octal base">OCT</button>
+            <button class="base-btn" data-base="2" aria-pressed="false" aria-label="Binary base">BIN</button>
+          </div>
+
+          <div class="prog-display" aria-live="polite" aria-label="Base conversion display">
+            <div class="prog-base-row">
+              <span class="prog-base-label">HEX</span>
+              <span class="prog-base-value" id="hexVal">0</span>
+            </div>
+            <div class="prog-base-row">
+              <span class="prog-base-label">DEC</span>
+              <span class="prog-base-value active" id="decVal">0</span>
+            </div>
+            <div class="prog-base-row">
+              <span class="prog-base-label">OCT</span>
+              <span class="prog-base-value" id="octVal">0</span>
+            </div>
+            <div class="prog-base-row">
+              <span class="prog-base-label">BIN</span>
+              <span class="prog-base-value" id="binVal">0</span>
+            </div>
+          </div>
+
+          <div class="main-keys" style="grid-template-columns:repeat(4,1fr);" role="group" aria-label="Programmer keys">
+            <button class="key key-sci" data-val="A" id="hexA" aria-label="A">A</button>
+            <button class="key key-sci" data-val="B" id="hexB" aria-label="B">B</button>
+            <button class="key key-sci" data-val="C" id="hexC" aria-label="C">C</button>
+            <button class="key key-danger" data-val="AC" aria-label="All Clear">AC</button>
+
+            <button class="key key-sci" data-val="D" id="hexD" aria-label="D">D</button>
+            <button class="key key-sci" data-val="E" id="hexE" aria-label="E">E</button>
+            <button class="key key-sci" data-val="F" id="hexF" aria-label="F">F</button>
+            <button class="key key-special" data-val="⌫" aria-label="Backspace">⌫</button>
+
+            <button class="key key-sci" data-val="AND" aria-label="Bitwise AND" style="font-size:0.75rem;">AND</button>
+            <button class="key key-sci" data-val="OR" aria-label="Bitwise OR" style="font-size:0.75rem;">OR</button>
+            <button class="key key-sci" data-val="XOR" aria-label="Bitwise XOR" style="font-size:0.75rem;">XOR</button>
+            <button class="key key-sci" data-val="NOT" aria-label="Bitwise NOT" style="font-size:0.75rem;">NOT</button>
+
+            <button class="key key-num" data-val="7" aria-label="7">7</button>
+            <button class="key key-num" data-val="8" aria-label="8">8</button>
+            <button class="key key-num" data-val="9" aria-label="9">9</button>
+            <button class="key key-op" data-val="÷" aria-label="Divide">÷</button>
+
+            <button class="key key-num" data-val="4" aria-label="4">4</button>
+            <button class="key key-num" data-val="5" aria-label="5">5</button>
+            <button class="key key-num" data-val="6" aria-label="6">6</button>
+            <button class="key key-op" data-val="×" aria-label="Multiply">×</button>
+
+            <button class="key key-num" data-val="1" aria-label="1">1</button>
+            <button class="key key-num" data-val="2" aria-label="2">2</button>
+            <button class="key key-num" data-val="3" aria-label="3">3</button>
+            <button class="key key-op" data-val="−" aria-label="Subtract">−</button>
+
+            <button class="key key-num" data-val="0" aria-label="0" style="grid-column:span 2;">0</button>
+            <button class="key key-op" data-val="+" aria-label="Add">+</button>
+            <button class="key key-eq" data-val="=" aria-label="Equals">=</button>
+          </div>
+        </div>
+
+        <!-- === GRAPHING MODE === -->
+        <div id="keypad-graph" role="tabpanel" aria-labelledby="graph-tab" style="display:none; flex:1; display:none; flex-direction:column;">
+          <div class="graph-container" style="flex:1; min-height:280px;">
+            <canvas id="graphCanvas" aria-label="Function graph" role="img"></canvas>
+          </div>
+          <div class="graph-input-row">
+            <label for="graphExpr" style="font-size:0.85rem; color:var(--text-2); white-space:nowrap; display:flex; align-items:center;">y =</label>
+            <input
+              type="text"
+              class="graph-input"
+              id="graphExpr"
+              placeholder="e.g. sin(x) * x"
+              value="sin(x)"
+              aria-label="Enter function to graph"
+            >
+            <button class="btn btn-primary" id="graphBtn" style="padding:0.5rem 1rem; font-size:0.85rem;">Plot</button>
+          </div>
+        </div>
+
+      </div><!-- /keypadArea -->
+
+      <!-- Undo/Redo row -->
+      <div style="display:flex; gap:0.5rem; padding:0.5rem 1.25rem 1rem; border-top:1px solid var(--glass-border);">
+        <button class="btn btn-ghost btn-sm" id="undoBtn" aria-label="Undo last action" title="Undo (Ctrl+Z)">↩ Undo</button>
+        <button class="btn btn-ghost btn-sm" id="redoBtn" aria-label="Redo action" title="Redo (Ctrl+Y)">Redo ↪</button>
+        <button class="btn btn-ghost btn-sm" id="copyBtn" aria-label="Copy result" title="Copy result (Ctrl+C)">⎘ Copy</button>
+        <button class="btn btn-ghost btn-sm" id="shareBtn" aria-label="Share result link" title="Share link">🔗 Share</button>
+        <a href="settings.html" class="btn btn-ghost btn-sm" aria-label="Settings" style="margin-left:auto;">⚙️</a>
+        <a href="help.html" class="btn btn-ghost btn-sm" aria-label="Help">?</a>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive" aria-atomic="true"></div>
+
+  <!-- Shortcut Help Overlay -->
+  <div class="overlay" id="helpOverlay" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
+    <div class="modal">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+        <h2 id="help-modal-title" style="font-family:var(--font-display); font-weight:700;">Keyboard Shortcuts</h2>
+        <button class="icon-btn" id="closeHelp" aria-label="Close help">✕</button>
+      </div>
+      <div class="shortcut-grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="shortcut-item"><span class="shortcut-label">Calculate</span><kbd class="kbd">Enter</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Clear</span><kbd class="kbd">Escape</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Backspace</span><kbd class="kbd">⌫</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Undo</span><kbd class="kbd">Ctrl+Z</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Copy result</span><kbd class="kbd">Ctrl+C</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Shortcuts</span><kbd class="kbd">?</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Basic mode</span><kbd class="kbd">Alt+1</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Scientific</span><kbd class="kbd">Alt+2</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Programmer</span><kbd class="kbd">Alt+3</kbd></div>
+        <div class="shortcut-item"><span class="shortcut-label">Graphing</span><kbd class="kbd">Alt+4</kbd></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
