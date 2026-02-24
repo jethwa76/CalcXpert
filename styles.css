@@ -1612,6 +1612,26 @@ a:hover { opacity: 0.8; }
   .key { min-height: 52px; border-radius: var(--radius-sm); }
   .calc-display { padding: 1rem 1.25rem 0.75rem; }
   .display-result { font-size: 2rem; }
+  
+  /* Mini calculator responsive fixes */
+  .mini-calc {
+    width: 100%;
+    max-width: 260px;
+    padding: 1rem;
+  }
+  .mini-keys {
+    gap: 0.35rem;
+  }
+  .mini-key {
+    min-height: 40px;
+    font-size: 0.8rem;
+  }
+  .mini-display {
+    padding: 0.75rem;
+  }
+  .mini-result {
+    font-size: 1.4rem;
+  }
 }
 
 /* ─── Reduced Motion ─── */
