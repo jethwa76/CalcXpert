@@ -401,6 +401,11 @@ a:hover { opacity: 0.8; }
   gap: 0.5rem;
 }
 
+/* Make the 0 button span 2 columns like standard calculators */
+.mini-key.num.zero {
+  grid-column: span 2;
+}
+
 .mini-key {
   aspect-ratio: 1;
   border: none;
